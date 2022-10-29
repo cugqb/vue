@@ -52,7 +52,7 @@ export default {
       })
 
     },
-    //清楚已完成的todo
+    //清楚已完成的todo   wwwwwww
     clearTodo(){
       this.todos = this.todos.filter(todo => todo.done !== true)
     }
