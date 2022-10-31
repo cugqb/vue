@@ -4,6 +4,7 @@
     <h1>学生性别:{{studentSex}}</h1>
     <button @click="send">点我传递学生姓名</button>
     <button @click="unbind">解绑按钮</button>
+    <button @click="sendStudentSex">点我传递学生性别</button>
   </div>
 </template>
 
@@ -23,8 +24,13 @@ export default {
             this.$emit('sendStudnetName',this.studentName)
         },
         unbind(){
+            //将事件名为sendStudentName与组件解绑。
             this.$off('sendStudnetName')
+        },
+        sendStudentSex(){
+            this.$bus.$emit('sendSex',this.studentSex)
         }
+
     }
     
 
