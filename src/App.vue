@@ -1,42 +1,47 @@
 <template>
-  <div class="root">
-    <h1>{{msg}}</h1>
-    <!-- 通过父组件给子组件传递函数类型的props实现：子给父传递数据 -->
-    <mySchool :sendName="sendName"/>
-    <!-- 自定义组件 名称为sendStudentName -->
-    <myStudent @sendStudnetName="demo"/>
+<div class="demo">
+  <myBanner/>
+  <div class="url">
+    <!-- <a href="./about.html">about</a> -->
+    <router-link to="/about">about</router-link>
+    <router-link to="/home">home</router-link>
+    <!-- <a href="./home.html">home</a> -->
   </div>
+  <div>
+   <router-view></router-view>
+  </div>
+
+</div>
   
 </template>
 
 <script>
-import myStudent from "./components/Student"
-import mySchool from "./components/School"
+import myBanner from './components/Banner'
 
 
 export default {
   name: 'App',
-  components:{mySchool,myStudent},
-  data(){
-    return{
-      msg:'你好啊'
-    }
-  },
-  methods:{
-    sendName(name){
-      this.msg = name
-    },
-    demo(name){
-      this.msg = name
-    }
-  }
-   
+  components:{myBanner}
+  
+
 }
 </script>
 
 <style>
-.root{
-  background-color: rgb(112, 66, 66);
+a {
+  text-decoration: none;
+  margin-left: 20px;
 }
-
+a:hover{
+  background: skyblue;
+}
+.demo{
+  
+  padding-left: 500px;
+  
+}
+.url{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 </style>

@@ -1,16 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
-//引入vue-router
-import VueRouter from 'vue-router'
-import router from './router'
+import store from './store'
 
 Vue.config.productionTip = false
-//应用插件
-Vue.use(VueRouter)
 
 new Vue({
   render: h => h(App),
-  router:router,
+  store,
   beforeCreate() {
     Vue.prototype.$bus = this
   },

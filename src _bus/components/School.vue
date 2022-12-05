@@ -2,7 +2,7 @@
     <div class="school">
         <h1>接收的学生性别:{{sex}}</h1>
         <h1>学校名称:{{schoolName}}</h1>
-        <h1>学校地址:{{schoolAddress}}</h1>
+        <h1>学校地址真的:{{schoolAddress}}</h1>
         <button @click="sendSchoolName">把学校名给app</button>
         
     </div>
@@ -31,8 +31,11 @@ export default {
     mounted(){
         this.$bus.$on('sendSex',(sex)=>{
             this.sex = sex
-        })
-    }
+        })   
+    },
+    beforeDestroy() {
+            this.$bus.$off('sendSex')
+        }
 }
 </script>
 
